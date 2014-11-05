@@ -1,0 +1,11 @@
+<template name="idea">
+    {{title}}
+    {{description}}
+    {{tags}}
+    
+    <h2>Similar Projects:</h2>
+    {{#each similar}}
+        <a href="{{link}}">{{title}}</a>
+    {{/each}}
+    
+</template>

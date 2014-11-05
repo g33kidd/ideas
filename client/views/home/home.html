@@ -1,0 +1,19 @@
+<template name="home">
+
+    <div class="activity">
+        <table class="table table-hover">
+            <tbody>
+                {{#each activity}}
+                <tr>
+                    <td>{{> activityItem}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+</template>
+
+<template name="activityItem">
+    {{{activityString}}}
+</template>
