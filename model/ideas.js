@@ -15,6 +15,10 @@ Meteor.methods({
 
         var ideaId = Ideas.insert(idea);
         return { _id: ideaId };
+    },
+
+    watch: function(ideaId) {
+        Ideas.update(ideaId, {$addToSet: {watchers: Meteor.userId()}});
     }
 
 });

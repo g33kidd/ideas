@@ -1,11 +1,17 @@
 <template name="idea">
-    {{title}}
-    {{description}}
-    {{tags}}
+    <div class="title">{{title}}</div>
+    <div class="description">{{description}}</div>
+    <div class="tags">{{tags}}</div>
+
+    <button class="watchThis btn btn-primary">Watch This</button>
     
     <h2>Similar Projects:</h2>
     {{#each similar}}
         <a href="{{link}}">{{title}}</a>
+    {{/each}}
+
+    <h2>Watchers</h2>
+    {{#each watchers}}
     {{/each}}
     
 </template>
