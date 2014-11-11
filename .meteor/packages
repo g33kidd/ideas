@@ -8,10 +8,10 @@ insecure
 less
 mizzao:bootstrap-3
 accounts-base
-accounts-password
-accounts-ui
 underscore
 sacha:spin
 jparker:gravatar
 mrt:moment
 iron:router
+accounts-twitter
+ian:accounts-ui-bootstrap-3
