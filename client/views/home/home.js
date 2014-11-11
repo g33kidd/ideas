@@ -1,6 +1,10 @@
 Template.home.helpers({
     activity: function() {
         return Activity.find({}, {limit: 20, sort: {created: -1}});
+    },
+
+    ideas: function() {
+        return Ideas.find({}, {limit:4, sort: {created: -1}});
     }
 });
 

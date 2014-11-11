@@ -1,4 +1,16 @@
 <template name="home">
+    
+    <div class="ideas">
+        <h2>Recent Ideas</h2>
+        <div class="row">
+            {{#each ideas}}
+            <div class="col-md-3">
+                {{title}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
 
     <div class="activity">
         <h2>Recent Activity</h2>
