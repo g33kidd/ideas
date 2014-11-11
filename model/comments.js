@@ -2,9 +2,9 @@ Comments = new Mongo.Collection('comments');
 
 Meteor.methods({
 
-	comment: function(commentAttr) {
+	addComment: function(commentAttr) {
 		check(commentAttr, {
-			content: String
+			body: String
 		});
 
 		var comment = _.extend(commentAttr, {
@@ -14,13 +14,6 @@ Meteor.methods({
 
 		var inserted = Comments.insert(comment);
 		return { _id: inserted._id };
-	},
-
-	removeComment: function(commentId) {
-		Comments.remove({_id: commentId}, function(error) {
-			if(error)
-				return error.reason;
-		});
 	}
 
 });

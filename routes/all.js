@@ -17,6 +17,9 @@ Router.map(function() {
 
     this.route('idea', {
         path: '/idea/:_id',
+        waitOn: function() {
+            return Meteor.subscribe('comments', this.params._id);
+        },
         data: function() {
             return Ideas.findOne({_id: this.params._id});
         }
