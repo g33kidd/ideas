@@ -18,11 +18,13 @@
     {{/each}}
 
     <div class="comments">
-        <textarea name="commentbody" id="commentbody" rows="3"></textarea>
+        <textarea name="body" id="body" rows="3"></textarea>
         <button id="postComment">Post Comment</button>
         <ul>
             {{#each comments}}
+                <li>
                 {{body}}
+                </li>
             {{/each}}
         </ul>
     </div>

@@ -19,6 +19,11 @@ Meteor.methods({
 
     watch: function(ideaId) {
         Ideas.update(ideaId, {$addToSet: {watchers: Meteor.userId()}});
+    },
+
+    unwatch: function(ideaId) {
+        Ideas.update(ideaId, {$pull: {watchers: Meteor.userId()}});
+        // Ideas.update(ideaId. {$pull: {watchers: Meteor.userId()}});
     }
 
 });
