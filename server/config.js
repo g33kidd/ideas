@@ -1,5 +1,10 @@
 Accounts.onCreateUser(function(options, user) {
     var msg = "joined";
-    trackAction(user._id, user.emails[0].address, msg, 'none');
+
+    if(!options.username)
+    	options.username = user.services.twitter.screenName;
+    user.username = options.username;
+
+    trackAction(user._id, user.username, msg, 'none');
     return user;
 });

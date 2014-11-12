@@ -23,7 +23,7 @@ Template.idea.events({
         var currentPostId = this._id;
         Meteor.call('watch', currentPostId);
         var msg = "is now watching";
-        trackAction(Meteor.userId(), Meteor.user().emails[0].address, msg, currentPostId);
+        trackAction(Meteor.userId(), Meteor.user().username, msg, currentPostId);
     },
 
     'click .unwatchThis': function(e) {
@@ -41,7 +41,7 @@ Template.idea.events({
         Meteor.call('addComment', comment, function(error, commentId) {
             $body.val('');
             var msg = "commented on";
-            trackAction(Meteor.userId(), Meteor.user().emails[0].address, msg, template.data._id);
+            trackAction(Meteor.userId(), Meteor.user().username, msg, template.data._id);
         });
     }
 });

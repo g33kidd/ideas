@@ -1,32 +1,63 @@
 <template name="idea">
-    <div class="title">{{title}}</div>
-    <div class="description">{{description}}</div>
-    <div class="tags">{{tags}}</div>
 
-    {{#if isOwner}}
-    {{else}}
-        {{#if isWatching}}
-            <button class="unwatchThis btn btn-primary">Unwatch This</button>
-        {{else}}
-            <button class="watchThis btn btn-primary">Watch This</button>
-        {{/if}}
-    {{/if}}
+    <div class="idea">
 
-    <h2>Watchers</h2>
-    {{#each watchers}}
-        {{profile.name}}
-    {{/each}}
+        <div class="row">
+            <div class="col-md-8">
+                <div class="details">
+                    <div class="actions">
+                        {{#if currentUser}}
+                            {{#if isWatching}}
+                                <button class="unwatchThis btn btn-primary">Unwatch</button>
+                            {{else}}
+                                <button class="watchThis btn btn-primary">Watch</button>
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                    <div class="title">{{title}}</div>
+                    <div class="description">{{description}}</div>
+                </div>
+                
+                <div class="similar-projects"></div>
+                {{> commentSection}}
+            </div>
+            <div class="col-md-4">
+                <div class="side watchers">
+                    <div class="header">People Watching</div>
+                    <div class="content">
+                        {{#each watchers}}
+                            <div class="person">{{profile.name}}</div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="comments">
-        <textarea name="body" id="body" rows="3"></textarea>
-        <button id="postComment">Post Comment</button>
-        <ul>
-            {{#each comments}}
-                <li>
-                {{body}}
-                </li>
-            {{/each}}
-        </ul>
     </div>
-    
+
+</template>
+
+
+<template name="commentSection">
+    <div class="comments">
+        {{#if currentUser}}
+        <div class="composer">
+            <textarea name="body" id="body" rows="3" placeholder="Write a comment..."></textarea>
+            <button id="postComment">Post Comment</button>
+        </div>
+        {{else}}
+        <div class="no-comments">
+            <h4>Please login to comment.</h4>
+        </div>
+        {{/if}}
+        <div class="comments">
+            {{#each comments}}
+                <div class="comment">
+                    <div class="body">{{body}}</div>
+                    <div class="from">{{author}}</div>
+                    <div class="timeago">{{created}}</div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
 </template>

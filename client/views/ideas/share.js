@@ -11,7 +11,7 @@ Template.share.events({
             if(error)
                 return alert(error.reason);
             var msg = "shared";
-            trackAction(Meteor.userId(), Meteor.user().emails[0].address, msg, result._id);
+            trackAction(Meteor.userId(), Meteor.user().username, msg, result._id);
             Router.go('idea', {_id: result._id});
         });
     }
