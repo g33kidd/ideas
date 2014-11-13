@@ -9,9 +9,10 @@ Meteor.methods({
 		// });
 
 		var user = Meteor.user();
+		var author = (typeof user.profile === 'undefined') ? user.username : user.profile.name;
 		var comment = _.extend(commentAttr, {
 			userId: user._id,
-			author: user.profile.name,
+			author: author,
 			created: new Date()
 		});
 

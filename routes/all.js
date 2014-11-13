@@ -25,4 +25,11 @@ Router.map(function() {
         }
     });
 
+    this.route('profile', {
+        path: '/user/:username',
+        data: function() {
+            return Meteor.users.findOne({username: this.params.username});
+        }
+    })
+
 });

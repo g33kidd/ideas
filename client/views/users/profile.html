@@ -1,0 +1,20 @@
+<template name="profile">
+
+    <div class="row">
+        <div class="col-md-9">
+            
+        </div>
+        <div class="col-md-3">
+            <div class="contribution-score">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{score}}" aria-valuemin="0" aria-valuemax="10" style="width: {{scorePercent}}%">
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{username}}
+    {{score}}
+
+</template>
