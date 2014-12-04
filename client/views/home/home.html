@@ -1,24 +1,22 @@
 <template name="home">
     
     <div class="row">
-        <div class="col-md-8 main">
-            <div class="tabs">Fresh Ideas</div>
+        <div class="col-md-12 main">
+            <div class="tabs">Recent</div>
             <div class="tab-content">
                 <div class="row">
                     {{#each ideas}}
-                    <div class="col-md-3">
-                        <a href="{{pathFor 'idea'}}">{{title}}</a>
-                    </div>
+                        {{> ideaItem}}
                     {{/each}}
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4 sidebar">
+        <!-- <div class="col-md-4 sidebar">
             <div class="section activity-feed">
                 <div class="header">
                     <div class="header-title">Activity</div>
-                    <div class="header-action"><!-- <a href="#">View more</a> --></div>
+                    <div class="header-action"><a href="#">View more</a></div>
                 </div>
                 <ul class="feed">
                     {{#each activity}}
@@ -26,11 +24,54 @@
                     {{/each}}
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
 
 </template>
 
 <template name="activityItem">
     {{{activityString}}}
+</template>
+
+<template name="ideaItem">
+    <div class="col-md-4 idea-card-container">
+        <!-- <a href="{{pathFor 'idea'}}"> -->
+            <div class="idea-card1">
+                <div class="overlay">
+                    {{#if isWatching}}
+                    <div class="unwatch-this">Unwatch This</div>
+                    {{else}}
+                    <div class="watch-this">Watch This</div>
+                    {{/if}}
+                </div>  
+                <div class="user-profile"><img src="{{userProfileImage}}"></div>
+                <div class="title">{{title}}</div>
+                <div class="content">{{content}}</div>
+                <div class="meta">
+                    <div class="comment-count">{{commentCount}}</div>
+                    <div class="time-ago">{{created}}</div>
+                </div>
+            </div>
+        <!-- </a> -->
+    </div>
+    <div class="col-md-4 idea-card-container">
+        <!-- <a href="{{pathFor 'idea'}}"> -->
+            <div class="idea-card2">  
+                <div class="user-profile"><img src="{{userProfileImage}}"></div>
+                <div class="title">{{title}}</div>
+                <div class="content">{{content}}</div>
+                <div class="actions">
+                    {{#if isWatching}}
+                    <div class="unwatch-this">Unwatch This</div>
+                    {{else}}
+                    <div class="watch-this">Watch This</div>
+                    {{/if}}
+                </div>
+                <div class="meta">
+                    <div class="comment-count">{{commentCount}}</div>
+                    <div class="time-ago">{{created}}</div>
+                </div>
+            </div>
+        <!-- </a> -->
+    </div>
 </template>

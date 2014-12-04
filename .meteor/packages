@@ -10,9 +10,9 @@ accounts-base
 underscore
 sacha:spin
 jparker:gravatar
-mrt:moment
 iron:router
 accounts-twitter
 ian:accounts-ui-bootstrap-3
 meteorhacks:kadira
-
+coffeescript
+mrt:moment
