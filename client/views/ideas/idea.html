@@ -19,14 +19,34 @@
                 </div>
                 
                 <div class="similar-projects"></div>
-                {{> commentSection}}
+                <div class="comments">
+                    {{#if currentUser}}
+                    <div class="composer">
+                        <textarea name="body" id="body" rows="3" placeholder="Write a comment..."></textarea>
+                        <button id="postComment">Post Comment</button>
+                    </div>
+                    {{else}}
+                    <div class="no-comments">
+                        <h4>Please login to comment.</h4>
+                    </div>
+                    {{/if}}
+                    <div class="comments">
+                        {{#each comments}}
+                            <div class="comment">
+                                <div class="body">{{body}}</div>
+                                <div class="from">{{author}}</div>
+                                <div class="timeago">{{created}}</div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
             </div>
             <div class="col-md-4">
                 <div class="side watchers">
                     <div class="header">People Watching</div>
                     <div class="content">
                         {{#each watchers}}
-                            <div class="person">{{profile.name}}</div>
+                            <div class="person">{{username}}</div>
                         {{/each}}
                     </div>
                 </div>
@@ -35,29 +55,4 @@
 
     </div>
 
-</template>
-
-
-<template name="commentSection">
-    <div class="comments">
-        {{#if currentUser}}
-        <div class="composer">
-            <textarea name="body" id="body" rows="3" placeholder="Write a comment..."></textarea>
-            <button id="postComment">Post Comment</button>
-        </div>
-        {{else}}
-        <div class="no-comments">
-            <h4>Please login to comment.</h4>
-        </div>
-        {{/if}}
-        <div class="comments">
-            {{#each comments}}
-                <div class="comment">
-                    <div class="body">{{body}}</div>
-                    <div class="from">{{author}}</div>
-                    <div class="timeago">{{created}}</div>
-                </div>
-            {{/each}}
-        </div>
-    </div>
 </template>

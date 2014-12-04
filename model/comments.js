@@ -3,11 +3,6 @@ Comments = new Mongo.Collection('comments');
 Meteor.methods({
 
 	addComment: function(commentAttr) {
-		// check(commentAttr, {
-		// 	body: String,
-		// 	ideaId: String
-		// });
-
 		var user = Meteor.user();
 		var author = (typeof user.profile === 'undefined') ? user.username : user.profile.name;
 		var comment = _.extend(commentAttr, {
@@ -18,6 +13,7 @@ Meteor.methods({
 
 		var inserted = Comments.insert(comment);
 		createCommentNotification(comment);
+		trackActivity(COMMENT_ACTION, Meteor.userId(), commentAttr.ideaId);
 		return { _id: inserted._id };
 	}
 

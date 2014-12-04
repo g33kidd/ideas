@@ -5,6 +5,6 @@ Accounts.onCreateUser(function(options, user) {
     	options.username = user.services.twitter.screenName;
     user.username = options.username;
 
-    trackAction(user._id, user.username, msg, 'none');
+    trackActivity(JOIN_ACTION, user._id, null);
     return user;
 });

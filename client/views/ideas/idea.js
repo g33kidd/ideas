@@ -14,7 +14,7 @@ Template.idea.helpers({
     },
 
     comments: function() {
-        return Comments.find({ideaId: this._id});
+        return Comments.find({ideaId: this._id}, {sort: {created: -1}});
     }
 });
 
@@ -22,8 +22,6 @@ Template.idea.events({
     'click .watchThis': function(e) {
         var currentPostId = this._id;
         Meteor.call('watch', currentPostId);
-        var msg = "is now watching";
-        trackAction(Meteor.userId(), Meteor.user().username, msg, currentPostId);
     },
 
     'click .unwatchThis': function(e) {
@@ -40,8 +38,6 @@ Template.idea.events({
 
         Meteor.call('addComment', comment, function(error, commentId) {
             $body.val('');
-            var msg = "commented on";
-            trackAction(Meteor.userId(), Meteor.user().username, msg, template.data._id);
         });
     }
 });

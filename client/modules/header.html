@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{pathFor 'home'}}">IDEASWATCH</a>
+      <a class="navbar-brand" href="{{pathFor 'home'}}">IDEASHARE</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,7 +18,6 @@
       <ul class="nav navbar-nav">
         <li><a href="{{pathFor 'home'}}">Home</a></li>
         <li><a href="{{pathFor 'share'}}">Share</a></li>
-        <li><a href="{{pathFor 'browse'}}">Browse</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{#if currentUser}}
@@ -26,7 +25,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notifications <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             {{#each notifications}}
-              <li><a href="{{link}}">{{notification}}</a></li>
+              {{> notificationItem}}
             {{/each}}
           </ul>
         </li>
@@ -37,4 +36,9 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+</template>
+
+
+<template name="notificationItem">
+  <li>Notification</li>
 </template>

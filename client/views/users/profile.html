@@ -2,9 +2,10 @@
 
     <div class="row">
         <div class="col-md-9">
-            
+            <h3>{{username}}</h3>
         </div>
         <div class="col-md-3">
+            <h4>Contribution Score</h4>
             <div class="contribution-score">
                 <div class="progress">
                   <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{score}}" aria-valuemin="0" aria-valuemax="10" style="width: {{scorePercent}}%">
@@ -13,8 +14,5 @@
             </div>
         </div>
     </div>
-
-    {{username}}
-    {{score}}
 
 </template>

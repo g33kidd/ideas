@@ -1,29 +1,31 @@
 <template name="home">
     
     <div class="row">
-        <div class="col-md-9 ideas">
-            <h2>Recent Ideas</h2>
-            <div class="row">
-                {{#each ideas}}
-                <div class="col-md-3">
-                    <a href="{{pathFor 'idea'}}">{{title}}</a>
+        <div class="col-md-8 main">
+            <div class="tabs">Fresh Ideas</div>
+            <div class="tab-content">
+                <div class="row">
+                    {{#each ideas}}
+                    <div class="col-md-3">
+                        <a href="{{pathFor 'idea'}}">{{title}}</a>
+                    </div>
+                    {{/each}}
                 </div>
-                {{/each}}
             </div>
         </div>
 
-
-        <div class="col-md-3 activity">
-            <h2>Recent Activity</h2>
-            <table class="table table-hover">
-                <tbody>
+        <div class="col-md-4 sidebar">
+            <div class="section activity-feed">
+                <div class="header">
+                    <div class="header-title">Activity</div>
+                    <div class="header-action"><!-- <a href="#">View more</a> --></div>
+                </div>
+                <ul class="feed">
                     {{#each activity}}
-                    <tr>
-                        <td>{{> activityItem}}</td>
-                    </tr>
+                    <li>{{> activityItem}}</li>
                     {{/each}}
-                </tbody>
-            </table>
+                </ul>
+            </div>
         </div>
     </div>
 
